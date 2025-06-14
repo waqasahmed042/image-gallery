@@ -78,7 +78,7 @@ const imageData = [
         id: 12,
         title: "Science",
         description: "Discover the wonders of scientific exploration and groundbreaking discoveries that expand our understanding of the universe. This collection delves into fascinating phenomena, complex experiments, and the relentless pursuit of knowledge. Explore the intricate details of scientific research and its profound impact on humanity.",
-        imageUrl: "images/12.jpg"
+        imageUrl: "images/12.jpeg"
     }
 ];
 
@@ -119,11 +119,11 @@ const createCard = (cardData) => {
         <div class="card bg-white rounded-lg shadow-md overflow-hidden">
             <div class="relative overflow-hidden">
                 <img src="${cardData.imageUrl}" alt="${cardData.title}" 
-                    class="w-[1280px] h-[300px] md:h-[400px] lg:h-[720px] object-cover">
+                    class="w-full aspect-video object-cover">
             </div>
-            <div class="p-6">
-                <h3 class="card-text text-xl font-semibold mb-2">${cardData.title}</h3>
-                <p class="card-text text-gray-600">${cardData.description}</p>
+            <div class="p-4">
+                <h3 class="card-text text-lg font-semibold mb-2 line-clamp-2">${cardData.title}</h3>
+                <p class="card-text text-gray-600 text-sm line-clamp-2">${cardData.description}</p>
             </div>
         </div>
     `;
