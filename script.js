@@ -72,43 +72,37 @@ const imageData = [
         id: 11,
         title: "Music",
         description: "Experience the universal language of music through evocative imagery that captures the essence of sound, performance, and emotion. From live concerts and studio sessions to iconic instruments and musical landscapes, this collection celebrates the rhythm, harmony, and profound impact of music on our lives.",
-        imageUrl: "images/11.jpg"
-    },
-    {
-        id: 12,
-        title: "Science",
-        description: "Discover the wonders of scientific exploration and groundbreaking discoveries that expand our understanding of the universe. This collection delves into fascinating phenomena, complex experiments, and the relentless pursuit of knowledge. Explore the intricate details of scientific research and its profound impact on humanity.",
-        imageUrl: "images/12.jpeg"
+        imageUrl: "images/11.jpeg"
     }
 ];
 
-// Footer menu data
+// Footer Menu Data
 const footerMenuData = {
-    company: {
-        title: "Company",
+    quickLinks: {
+        title: "Quick Links",
         links: [
-            { text: "About Us", url: "#" },
-            { text: "Careers", url: "#" },
-            { text: "Press", url: "#" },
-            { text: "Blog", url: "#" }
+            { text: "Home", href: "#" },
+            { text: "About", href: "#" },
+            { text: "Services", href: "#" },
+            { text: "Contact", href: "#" }
         ]
     },
-    resources: {
-        title: "Resources",
+    services: {
+        title: "Services",
         links: [
-            { text: "Documentation", url: "#" },
-            { text: "Help Center", url: "#" },
-            { text: "Guides", url: "#" },
-            { text: "API Status", url: "#" }
+            { text: "Web Design", href: "#" },
+            { text: "Development", href: "#" },
+            { text: "Marketing", href: "#" },
+            { text: "Consulting", href: "#" }
         ]
     },
-    legal: {
-        title: "Legal",
+    contact: {
+        title: "Contact",
         links: [
-            { text: "Privacy Policy", url: "#" },
-            { text: "Terms of Service", url: "#" },
-            { text: "Cookie Policy", url: "#" },
-            { text: "Licenses", url: "#" }
+            { text: "Email Us", href: "#" },
+            { text: "Call Us", href: "#" },
+            { text: "Visit Us", href: "#" },
+            { text: "Support", href: "#" }
         ]
     }
 };
@@ -119,7 +113,8 @@ const createCard = (cardData) => {
         <div class="card bg-white rounded-lg shadow-md overflow-hidden">
             <div class="relative overflow-hidden">
                 <img src="${cardData.imageUrl}" alt="${cardData.title}" 
-                    class="w-full aspect-video object-cover">
+                    class="w-full aspect-video object-cover transform transition-transform ease-in-out hover:scale-110" 
+                    style="transition-duration: 2000ms;">
             </div>
             <div class="p-4">
                 <h3 class="card-text text-lg font-semibold mb-2 line-clamp-2">${cardData.title}</h3>
@@ -127,7 +122,7 @@ const createCard = (cardData) => {
             </div>
         </div>
     `;
-}
+};
 
 // Function to create footer menu HTML
 const createFooterMenu = (menuData) => {
@@ -155,18 +150,36 @@ const populateCards = () => {
     }
 }
 
-// Function to populate footer menus
-const populateFooterMenus = () => {
+// Function to render footer menus
+function renderFooterMenus() {
     const footerMenusContainer = document.querySelector('.footer-menus');
-    if (footerMenusContainer) {
-        footerMenusContainer.innerHTML = Object.values(footerMenuData)
-            .map(menu => createFooterMenu(menu))
-            .join('');
-    }
+    if (!footerMenusContainer) return;
+
+    // Clear existing content
+    footerMenusContainer.innerHTML = '';
+
+    // Render each menu section
+    Object.values(footerMenuData).forEach(menu => {
+        const menuSection = document.createElement('div');
+        menuSection.innerHTML = `
+            <h3 class="text-lg font-semibold mb-4">${menu.title}</h3>
+            <ul class="space-y-2">
+                ${menu.links.map(link => `
+                    <li>
+                        <a href="${link.href}" class="footer-menu-link text-gray-300 hover:text-white relative group">
+                            ${link.text}
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></span>
+                        </a>
+                    </li>
+                `).join('')}
+            </ul>
+        `;
+        footerMenusContainer.appendChild(menuSection);
+    });
 }
 
 // Call the functions when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     populateCards();
-    populateFooterMenus();
+    renderFooterMenus();
 });

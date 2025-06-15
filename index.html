@@ -10,7 +10,7 @@
 
 <body class="bg-gray-100">
     <!-- Navbar -->
-    <nav class="bg-white shadow-lg">
+    <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
@@ -22,13 +22,29 @@
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-center space-x-4">
                         <a href="#"
-                            class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                            class="nav-link text-gray-700 hover:text-[#1B93C9] px-3 py-2 rounded-md text-sm font-medium relative group">
+                            Home
+                            <span
+                                class="absolute bottom-0 left-2 w-12 h-0.5 bg-[#1B93C9] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></span>
+                        </a>
                         <a href="#"
-                            class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">About</a>
+                            class="nav-link text-gray-700 hover:text-[#1B93C9] px-3 py-2 rounded-md text-sm font-medium relative group">
+                            About
+                            <span
+                                class="absolute bottom-0 left-2 w-12 h-0.5 bg-[#1B93C9] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></span>
+                        </a>
                         <a href="#"
-                            class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Services</a>
+                            class="nav-link text-gray-700 hover:text-[#1B93C9] px-3 py-2 rounded-md text-sm font-medium relative group">
+                            Services
+                            <span
+                                class="absolute bottom-0 left-2 w-14 h-0.5 bg-[#1B93C9] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></span>
+                        </a>
                         <a href="#"
-                            class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                            class="nav-link text-gray-700 hover:text-[#1B93C9] px-3 py-2 rounded-md text-sm font-medium relative group">
+                            Contact
+                            <span
+                                class="absolute bottom-0 left-2 w-14 h-0.5 bg-[#1B93C9] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></span>
+                        </a>
                     </div>
                 </div>
 
@@ -51,27 +67,46 @@
         <div class="mobile-menu hidden md:hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#"
-                    class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Home</a>
+                    class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[#1B93C9] hover:bg-gray-50 relative group">
+                    Home
+                    <span
+                        class="absolute bottom-0 left-2 w-14 h-0.5 bg-[#1B93C9] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></span>
+                </a>
                 <a href="#"
-                    class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">About</a>
+                    class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[#1B93C9] hover:bg-gray-50 relative group">
+                    About
+                    <span
+                        class="absolute bottom-0 left-2 w-14 h-0.5 bg-[#1B93C9] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></span>
+                </a>
                 <a href="#"
-                    class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Services</a>
+                    class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[#1B93C9] hover:bg-gray-50 relative group">
+                    Services
+                    <span
+                        class="absolute bottom-0 left-2 w-16 h-0.5 bg-[#1B93C9] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></span>
+                </a>
                 <a href="#"
-                    class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Contact</a>
+                    class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[#1B93C9] hover:bg-gray-50 relative group">
+                    Contact
+                    <span
+                        class="absolute bottom-0 left-2 w-16 h-0.5 bg-[#1B93C9] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></span>
+                </a>
             </div>
         </div>
     </nav>
 
-    <!-- Image Cards Section -->
-    <div class="max-w-7xl mx-auto px-4 py-8">
-        <h2 class="text-4xl font-extrabold text-gray-900 text-center mb-4">Our Gallery</h2>
-        <p class="text-sm md:text-md lg:text-lg xl:text-lg text-gray-700 text-center mb-10">
-            Explore our stunning image collection, where every visual is crafted to inspire and captivate. From
-            breathtaking landscapes to artistic compositions, each image tells a unique story. Dive in and let your
-            imagination be stirred by beauty and creativity.
-        </p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Cards will be dynamically loaded here by script.js -->
+    <!-- Add padding to the main content to prevent it from hiding behind the fixed navbar -->
+    <div class="pt-16">
+        <!-- Image Cards Section -->
+        <div class="max-w-7xl mx-auto px-4 py-8">
+            <h2 class="text-4xl font-extrabold text-gray-900 text-center mb-4">Our Gallery</h2>
+            <p class="text-sm md:text-md lg:text-lg xl:text-lg text-gray-700 text-center mb-10">
+                Explore our stunning image collection, where every visual is crafted to inspire and captivate. From
+                breathtaking landscapes to artistic compositions, each image tells a unique story. Dive in and let your
+                imagination be stirred by beauty and creativity.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Cards will be dynamically loaded here by script.js -->
+            </div>
         </div>
     </div>
 
@@ -115,34 +150,7 @@
 
                 <!-- Right side - Menu Lists -->
                 <div class="footer-menus grid grid-cols-1 md:grid-cols-3 gap-8 lg:col-span-3">
-                    <!-- Example footer menu structure -->
-                    <div>
-                        <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                        <ul class="space-y-2">
-                            <li><a href="#" class="footer-menu-link text-gray-300 hover:text-white">Home</a></li>
-                            <li><a href="#" class="footer-menu-link text-gray-300 hover:text-white">About</a></li>
-                            <li><a href="#" class="footer-menu-link text-gray-300 hover:text-white">Services</a></li>
-                            <li><a href="#" class="footer-menu-link text-gray-300 hover:text-white">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-semibold mb-4">Services</h3>
-                        <ul class="space-y-2">
-                            <li><a href="#" class="footer-menu-link text-gray-300 hover:text-white">Web Design</a></li>
-                            <li><a href="#" class="footer-menu-link text-gray-300 hover:text-white">Development</a></li>
-                            <li><a href="#" class="footer-menu-link text-gray-300 hover:text-white">Marketing</a></li>
-                            <li><a href="#" class="footer-menu-link text-gray-300 hover:text-white">Consulting</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-semibold mb-4">Contact</h3>
-                        <ul class="space-y-2">
-                            <li><a href="#" class="footer-menu-link text-gray-300 hover:text-white">Email Us</a></li>
-                            <li><a href="#" class="footer-menu-link text-gray-300 hover:text-white">Call Us</a></li>
-                            <li><a href="#" class="footer-menu-link text-gray-300 hover:text-white">Visit Us</a></li>
-                            <li><a href="#" class="footer-menu-link text-gray-300 hover:text-white">Support</a></li>
-                        </ul>
-                    </div>
+                    <!-- Footer menus will be dynamically loaded here by script.js -->
                 </div>
             </div>
         </div>
